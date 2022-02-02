@@ -5,10 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class CrashDetector : MonoBehaviour
 {
+    [SerializeField] ParticleSystem crashEffect;
     [SerializeField] float delayTime = 2f;
     private void OnTriggerEnter2D(Collider2D other) {
         if (other.tag == "Ground"){
-        Invoke("ReloadScene", delayTime);    
+        Invoke("ReloadScene", delayTime); 
+        crashEffect.Play();   
         }
     }
 
